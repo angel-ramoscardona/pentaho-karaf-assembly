@@ -132,25 +132,6 @@
       <artifactId>common-ui-impl-client-config</artifactId>
       <classifier>configuration-bundle</classifier>
     </dependency>
-    <!-- Shim/drivers dependencies -->
-    <dependency>
-      <groupId>org.pentaho.hadoop.shims</groupId>
-      <artifactId>pentaho-hadoop-shims-cdh61-kar</artifactId>
-      <classifier>features</classifier>
-      <type>xml</type>
-    </dependency>
-    <dependency>
-      <groupId>org.pentaho.hadoop.shims</groupId>
-      <artifactId>pentaho-hadoop-shims-emr521-kar</artifactId>
-      <classifier>features</classifier>
-      <type>xml</type>
-    </dependency>
-    <dependency>
-      <groupId>org.pentaho.hadoop.shims</groupId>
-      <artifactId>pentaho-hadoop-shims-hdp30-kar</artifactId>
-      <classifier>features</classifier>
-      <type>xml</type>
-    </dependency>
   </dependencies>
 
   <build>
@@ -224,10 +205,7 @@
                 <feature>get-fields-plugin</feature>
                 <feature>pentaho-big-data-impl-connections</feature>
                 <feature>pentaho-hadoop-cluster-ui</feature>
-                <!-- Shim/drivers features -->
-                <feature>pentaho-hadoop-shims-cdh61-kar</feature>
-                <feature>pentaho-hadoop-shims-emr521-kar</feature>
-                <feature>pentaho-hadoop-shims-hdp30-kar</feature>
+                <feature>driver-manager</feature>
               </installedFeatures>
             </configuration>
           </execution>
