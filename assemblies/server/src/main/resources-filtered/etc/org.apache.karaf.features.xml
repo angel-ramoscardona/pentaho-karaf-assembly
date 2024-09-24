@@ -39,6 +39,11 @@
                 originalUri="mvn:org.apache.cxf/cxf-rt-frontend-jaxrs/${cxf.version}"
                 replacement="mvn:org.hitachivantara/cxf-rt-frontend-jaxrs-wrap/${cxf.version}" mode="maven" />
 
+        <!-- Karaf 4.4.6 upgrade: Wrap remove the optional Karaf resolution of some imports that causes them to not import -->
+        <bundle
+                originalUri="mvn:org.apache.cxf/cxf-rt-transports-http/3.6.2"
+                replacement="mvn:org.hitachivantara/cxf-rt-transports-http-wrap/3.6.2" mode="maven" />
+
         <!-- [PPP-4430] CVE-2019-12086 Use of Vulnerable Component: jackson-databind-2.9.8.jar -->
         <!-- Replace all jackson bundles installed by activemq-karaf (first three) and apache-cxf (all) -->
         <bundle
@@ -146,14 +151,14 @@
          A series of overrides are made to prevent pax-http-service (which brings on Jetty) and pax-http-whiteboard
          from being installed. -->
         <replacement>
-            <feature name="http" description="Implementation of the OSGI HTTP Service" version="${karaf.version}" >
+            <feature name="http" description="Implementation of the OSGI HTTP Service" version="8.0.27" >
                 <f:feature dependency="true">felix-bridge</f:feature>
                 <f:requirement>http-service</f:requirement>
             </feature>
         </replacement>
 
         <replacement>
-            <feature name="http-whiteboard" description="Provide HTTP Whiteboard pattern support" version="${karaf.version}">
+            <feature name="http-whiteboard" description="Provide HTTP Whiteboard pattern support" version="8.0.27">
                 <f:feature>http</f:feature>
                 <f:bundle start-level="30">mvn:org.apache.felix/org.apache.felix.http.whiteboard/4.0.0</f:bundle>
             </feature>
